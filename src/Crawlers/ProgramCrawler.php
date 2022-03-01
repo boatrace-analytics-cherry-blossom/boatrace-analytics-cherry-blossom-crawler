@@ -61,7 +61,7 @@ class ProgramCrawler extends BaseCrawler
         }
 
         $titleFormat = '%s/div[1]/div/div[2]/h2';
-        $subtitleDistanceFormat = '%s/div[1]/div/div[2]/span';
+        $subtitleDistanceFormat = '%s/div[2]/div[3]/h3';
         $deadlineFormat = '%s/div[2]/div[2]/table/tbody/tr[1]/td[%s]';
 
         $titleXPath = sprintf($titleFormat, $this->baseXPath);

@@ -485,21 +485,21 @@ class OddsCrawler extends BaseCrawler
      */
     protected function crawlQuinella(Crawler $crawler, array $response, string $date, int $stadiumId, int $raceNumber): array
     {
-        $quinella12XPath = sprintf('%s/div[2]/div[%s]/table/tbody/tr[1]/td[2]', $this->baseXPath, $this->baseLevel + 8);
-        $quinella13XPath = sprintf('%s/div[2]/div[%s]/table/tbody/tr[2]/td[2]', $this->baseXPath, $this->baseLevel + 8);
-        $quinella14XPath = sprintf('%s/div[2]/div[%s]/table/tbody/tr[3]/td[2]', $this->baseXPath, $this->baseLevel + 8);
-        $quinella15XPath = sprintf('%s/div[2]/div[%s]/table/tbody/tr[4]/td[2]', $this->baseXPath, $this->baseLevel + 8);
-        $quinella16XPath = sprintf('%s/div[2]/div[%s]/table/tbody/tr[5]/td[2]', $this->baseXPath, $this->baseLevel + 8);
-        $quinella23XPath = sprintf('%s/div[2]/div[%s]/table/tbody/tr[2]/td[4]', $this->baseXPath, $this->baseLevel + 8);
-        $quinella24XPath = sprintf('%s/div[2]/div[%s]/table/tbody/tr[3]/td[4]', $this->baseXPath, $this->baseLevel + 8);
-        $quinella25XPath = sprintf('%s/div[2]/div[%s]/table/tbody/tr[4]/td[4]', $this->baseXPath, $this->baseLevel + 8);
-        $quinella26XPath = sprintf('%s/div[2]/div[%s]/table/tbody/tr[5]/td[4]', $this->baseXPath, $this->baseLevel + 8);
-        $quinella34XPath = sprintf('%s/div[2]/div[%s]/table/tbody/tr[3]/td[6]', $this->baseXPath, $this->baseLevel + 8);
-        $quinella35XPath = sprintf('%s/div[2]/div[%s]/table/tbody/tr[4]/td[6]', $this->baseXPath, $this->baseLevel + 8);
-        $quinella36XPath = sprintf('%s/div[2]/div[%s]/table/tbody/tr[5]/td[6]', $this->baseXPath, $this->baseLevel + 8);
-        $quinella45XPath = sprintf('%s/div[2]/div[%s]/table/tbody/tr[4]/td[8]', $this->baseXPath, $this->baseLevel + 8);
-        $quinella46XPath = sprintf('%s/div[2]/div[%s]/table/tbody/tr[5]/td[8]', $this->baseXPath, $this->baseLevel + 8);
-        $quinella56XPath = sprintf('%s/div[2]/div[%s]/table/tbody/tr[5]/td[10]', $this->baseXPath, $this->baseLevel + 8);
+        $quinella12XPath = sprintf('%s/div[2]/div[%s]/table/tbody/tr[1]/td[2]', $this->baseXPath, $this->baseLevel + 9);
+        $quinella13XPath = sprintf('%s/div[2]/div[%s]/table/tbody/tr[2]/td[2]', $this->baseXPath, $this->baseLevel + 9);
+        $quinella14XPath = sprintf('%s/div[2]/div[%s]/table/tbody/tr[3]/td[2]', $this->baseXPath, $this->baseLevel + 9);
+        $quinella15XPath = sprintf('%s/div[2]/div[%s]/table/tbody/tr[4]/td[2]', $this->baseXPath, $this->baseLevel + 9);
+        $quinella16XPath = sprintf('%s/div[2]/div[%s]/table/tbody/tr[5]/td[2]', $this->baseXPath, $this->baseLevel + 9);
+        $quinella23XPath = sprintf('%s/div[2]/div[%s]/table/tbody/tr[2]/td[4]', $this->baseXPath, $this->baseLevel + 9);
+        $quinella24XPath = sprintf('%s/div[2]/div[%s]/table/tbody/tr[3]/td[4]', $this->baseXPath, $this->baseLevel + 9);
+        $quinella25XPath = sprintf('%s/div[2]/div[%s]/table/tbody/tr[4]/td[4]', $this->baseXPath, $this->baseLevel + 9);
+        $quinella26XPath = sprintf('%s/div[2]/div[%s]/table/tbody/tr[5]/td[4]', $this->baseXPath, $this->baseLevel + 9);
+        $quinella34XPath = sprintf('%s/div[2]/div[%s]/table/tbody/tr[3]/td[6]', $this->baseXPath, $this->baseLevel + 9);
+        $quinella35XPath = sprintf('%s/div[2]/div[%s]/table/tbody/tr[4]/td[6]', $this->baseXPath, $this->baseLevel + 9);
+        $quinella36XPath = sprintf('%s/div[2]/div[%s]/table/tbody/tr[5]/td[6]', $this->baseXPath, $this->baseLevel + 9);
+        $quinella45XPath = sprintf('%s/div[2]/div[%s]/table/tbody/tr[4]/td[8]', $this->baseXPath, $this->baseLevel + 9);
+        $quinella46XPath = sprintf('%s/div[2]/div[%s]/table/tbody/tr[5]/td[8]', $this->baseXPath, $this->baseLevel + 9);
+        $quinella56XPath = sprintf('%s/div[2]/div[%s]/table/tbody/tr[5]/td[10]', $this->baseXPath, $this->baseLevel + 9);
 
         $response['stadiums'][$stadiumId]['races'][$raceNumber]['oddses']['quinella'][1][2] = $this->filterXPathForOdds($crawler, $quinella12XPath);
         $response['stadiums'][$stadiumId]['races'][$raceNumber]['oddses']['quinella'][1][3] = $this->filterXPathForOdds($crawler, $quinella13XPath);
@@ -575,12 +575,12 @@ class OddsCrawler extends BaseCrawler
      */
     protected function crawlWin(Crawler $crawler, array $response, string $date, int $stadiumId, int $raceNumber): array
     {
-        $win1XPath = sprintf('%s/div[2]/div[%s]/div[1]/div[2]/table/tbody[1]/tr/td[3]', $this->baseXPath, $this->baseLevel + 5);
-        $win2XPath = sprintf('%s/div[2]/div[%s]/div[1]/div[2]/table/tbody[2]/tr/td[3]', $this->baseXPath, $this->baseLevel + 5);
-        $win3XPath = sprintf('%s/div[2]/div[%s]/div[1]/div[2]/table/tbody[3]/tr/td[3]', $this->baseXPath, $this->baseLevel + 5);
-        $win4XPath = sprintf('%s/div[2]/div[%s]/div[1]/div[2]/table/tbody[4]/tr/td[3]', $this->baseXPath, $this->baseLevel + 5);
-        $win5XPath = sprintf('%s/div[2]/div[%s]/div[1]/div[2]/table/tbody[5]/tr/td[3]', $this->baseXPath, $this->baseLevel + 5);
-        $win6XPath = sprintf('%s/div[2]/div[%s]/div[1]/div[2]/table/tbody[6]/tr/td[3]', $this->baseXPath, $this->baseLevel + 5);
+        $win1XPath = sprintf('%s/div[2]/div[%s]/div[1]/div[2]/table/tbody[1]/tr/td[3]', $this->baseXPath, $this->baseLevel + 6);
+        $win2XPath = sprintf('%s/div[2]/div[%s]/div[1]/div[2]/table/tbody[2]/tr/td[3]', $this->baseXPath, $this->baseLevel + 6);
+        $win3XPath = sprintf('%s/div[2]/div[%s]/div[1]/div[2]/table/tbody[3]/tr/td[3]', $this->baseXPath, $this->baseLevel + 6);
+        $win4XPath = sprintf('%s/div[2]/div[%s]/div[1]/div[2]/table/tbody[4]/tr/td[3]', $this->baseXPath, $this->baseLevel + 6);
+        $win5XPath = sprintf('%s/div[2]/div[%s]/div[1]/div[2]/table/tbody[5]/tr/td[3]', $this->baseXPath, $this->baseLevel + 6);
+        $win6XPath = sprintf('%s/div[2]/div[%s]/div[1]/div[2]/table/tbody[6]/tr/td[3]', $this->baseXPath, $this->baseLevel + 6);
 
         $response['stadiums'][$stadiumId]['races'][$raceNumber]['oddses']['win'][1] = $this->filterXPathForOdds($crawler, $win1XPath);
         $response['stadiums'][$stadiumId]['races'][$raceNumber]['oddses']['win'][2] = $this->filterXPathForOdds($crawler, $win2XPath);
@@ -602,12 +602,12 @@ class OddsCrawler extends BaseCrawler
      */
     protected function crawlPlace(Crawler $crawler, array $response, string $date, int $stadiumId, int $raceNumber): array
     {
-        $place1XPath = sprintf('%s/div[2]/div[%s]/div[2]/div[2]/table/tbody[1]/tr/td[3]', $this->baseXPath, $this->baseLevel + 5);
-        $place2XPath = sprintf('%s/div[2]/div[%s]/div[2]/div[2]/table/tbody[2]/tr/td[3]', $this->baseXPath, $this->baseLevel + 5);
-        $place3XPath = sprintf('%s/div[2]/div[%s]/div[2]/div[2]/table/tbody[3]/tr/td[3]', $this->baseXPath, $this->baseLevel + 5);
-        $place4XPath = sprintf('%s/div[2]/div[%s]/div[2]/div[2]/table/tbody[4]/tr/td[3]', $this->baseXPath, $this->baseLevel + 5);
-        $place5XPath = sprintf('%s/div[2]/div[%s]/div[2]/div[2]/table/tbody[5]/tr/td[3]', $this->baseXPath, $this->baseLevel + 5);
-        $place6XPath = sprintf('%s/div[2]/div[%s]/div[2]/div[2]/table/tbody[6]/tr/td[3]', $this->baseXPath, $this->baseLevel + 5);
+        $place1XPath = sprintf('%s/div[2]/div[%s]/div[2]/div[2]/table/tbody[1]/tr/td[3]', $this->baseXPath, $this->baseLevel + 6);
+        $place2XPath = sprintf('%s/div[2]/div[%s]/div[2]/div[2]/table/tbody[2]/tr/td[3]', $this->baseXPath, $this->baseLevel + 6);
+        $place3XPath = sprintf('%s/div[2]/div[%s]/div[2]/div[2]/table/tbody[3]/tr/td[3]', $this->baseXPath, $this->baseLevel + 6);
+        $place4XPath = sprintf('%s/div[2]/div[%s]/div[2]/div[2]/table/tbody[4]/tr/td[3]', $this->baseXPath, $this->baseLevel + 6);
+        $place5XPath = sprintf('%s/div[2]/div[%s]/div[2]/div[2]/table/tbody[5]/tr/td[3]', $this->baseXPath, $this->baseLevel + 6);
+        $place6XPath = sprintf('%s/div[2]/div[%s]/div[2]/div[2]/table/tbody[6]/tr/td[3]', $this->baseXPath, $this->baseLevel + 6);
 
         $response['stadiums'][$stadiumId]['races'][$raceNumber]['oddses']['place'][1] = $this->filterXPathForOddsWithLowerLimitAndUpperLimit($crawler, $place1XPath);
         $response['stadiums'][$stadiumId]['races'][$raceNumber]['oddses']['place'][2] = $this->filterXPathForOddsWithLowerLimitAndUpperLimit($crawler, $place2XPath);

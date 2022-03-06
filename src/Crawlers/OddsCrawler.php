@@ -71,7 +71,7 @@ class OddsCrawler extends BaseCrawler
 
         $levelFormat = '%s/div[2]/div[3]/ul/li';
         $levelXPath = sprintf($levelFormat, $this->baseXPath);
-        if (! is_null($this->filterXPath($crawler, $levelXPath))) {
+        if (! is_null($this->filterXPath($crawler1, $levelXPath))) {
             $this->baseLevel = 1;
         }
 

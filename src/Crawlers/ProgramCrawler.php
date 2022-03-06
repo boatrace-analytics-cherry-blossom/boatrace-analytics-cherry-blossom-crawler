@@ -54,18 +54,18 @@ class ProgramCrawler extends BaseCrawler
 
         $this->baseLevel = 0;
 
-        $levelFormat = '%s/div[2]/div[4]/table/thead/tr[1]/th[1]';
+        $levelFormat = '%s/div[2]/div[3]/ul/li';
         $levelXPath = sprintf($levelFormat, $this->baseXPath);
-        if (is_null($this->filterXPath($crawler, $levelXPath))) {
+        if (! is_null($this->filterXPath($crawler, $levelXPath))) {
             $this->baseLevel = 1;
         }
 
         $titleFormat = '%s/div[1]/div/div[2]/h2';
-        $subtitleDistanceFormat = '%s/div[2]/div[3]/h3';
+        $subtitleDistanceFormat = '%s/div[2]/div[%s]/h3';
         $deadlineFormat = '%s/div[2]/div[2]/table/tbody/tr[1]/td[%s]';
 
         $titleXPath = sprintf($titleFormat, $this->baseXPath);
-        $subtitleDistanceXPath = sprintf($subtitleDistanceFormat, $this->baseXPath);
+        $subtitleDistanceXPath = sprintf($subtitleDistanceFormat, $this->baseXPath, $this->baseLevel + 3);
         $deadlineXPath = sprintf($deadlineFormat, $this->baseXPath, $raceNumber + 1);
 
         $title = $this->filterXPath($crawler, $titleXPath);
@@ -109,14 +109,14 @@ class ProgramCrawler extends BaseCrawler
         $boatNumberBoat23PercentagesFormat = '%s/div[2]/div[%s]/table/tbody[%s]/tr[1]/td[8]';
 
         foreach (range(1, 6) as $bracket) {
-            $nameXPath = sprintf($nameFormat, $this->baseXPath, $this->baseLevel + 4, $bracket);
-            $numberClassNameXPath = sprintf($numberClassNameFormat, $this->baseXPath, $this->baseLevel + 4, $bracket);
-            $branchNameBirthplaceNameAgeWeightXPath = sprintf($branchNameBirthplaceNameAgeWeightFormat, $this->baseXPath, $this->baseLevel + 4, $bracket);
-            $flyingCountLateCountStartTimingXPath = sprintf($flyingCountLateCountStartTimingFormat, $this->baseXPath, $this->baseLevel + 4, $bracket);
-            $national123PercentagesXPath = sprintf($national123PercentagesFormat, $this->baseXPath, $this->baseLevel + 4, $bracket);
-            $local123PercentagesXPath = sprintf($local123PercentagesFormat, $this->baseXPath, $this->baseLevel + 4, $bracket);
-            $motorNumberMotor23PercentagesXPath = sprintf($motorNumberMotor23PercentagesFormat, $this->baseXPath, $this->baseLevel + 4, $bracket);
-            $boatNumberMotor23PercentagesXPath = sprintf($boatNumberBoat23PercentagesFormat, $this->baseXPath, $this->baseLevel + 4, $bracket);
+            $nameXPath = sprintf($nameFormat, $this->baseXPath, $this->baseLevel + 5, $bracket);
+            $numberClassNameXPath = sprintf($numberClassNameFormat, $this->baseXPath, $this->baseLevel + 5, $bracket);
+            $branchNameBirthplaceNameAgeWeightXPath = sprintf($branchNameBirthplaceNameAgeWeightFormat, $this->baseXPath, $this->baseLevel + 5, $bracket);
+            $flyingCountLateCountStartTimingXPath = sprintf($flyingCountLateCountStartTimingFormat, $this->baseXPath, $this->baseLevel + 5, $bracket);
+            $national123PercentagesXPath = sprintf($national123PercentagesFormat, $this->baseXPath, $this->baseLevel + 5, $bracket);
+            $local123PercentagesXPath = sprintf($local123PercentagesFormat, $this->baseXPath, $this->baseLevel + 5, $bracket);
+            $motorNumberMotor23PercentagesXPath = sprintf($motorNumberMotor23PercentagesFormat, $this->baseXPath, $this->baseLevel + 5, $bracket);
+            $boatNumberMotor23PercentagesXPath = sprintf($boatNumberBoat23PercentagesFormat, $this->baseXPath, $this->baseLevel + 5, $bracket);
 
             $name = $this->filterXPath($crawler, $nameXPath);
             $numberClassName = $this->filterXPath($crawler, $numberClassNameXPath);

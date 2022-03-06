@@ -54,9 +54,9 @@ class NoticeCrawler extends BaseCrawler
 
         $this->baseLevel = 0;
 
-        $levelFormat = '%s/div[2]/div[4]/div[1]/div[1]/table/thead/tr[1]/th[1]';
+        $levelFormat = '%s/div[2]/div[3]/ul/li';
         $levelXPath = sprintf($levelFormat, $this->baseXPath);
-        if (is_null($this->filterXPath($crawler, $levelXPath))) {
+        if (! is_null($this->filterXPath($crawler, $levelXPath))) {
             $this->baseLevel = 1;
         }
 
@@ -66,11 +66,11 @@ class NoticeCrawler extends BaseCrawler
         $temperatureFormat = '%s/div[2]/div[%s]/div[2]/div[2]/div[1]/div[1]/div/span[2]';
         $waterTemperatureFormat = '%s/div[2]/div[%s]/div[2]/div[2]/div[1]/div[5]/div/span[2]';
 
-        $windXPath = sprintf($windFormat, $this->baseXPath, $this->baseLevel + 4);
-        $waveXPath = sprintf($waveFormat, $this->baseXPath, $this->baseLevel + 4);
-        $weatherNameXPath = sprintf($weatherIdFormat, $this->baseXPath, $this->baseLevel + 4);
-        $temperatureXPath = sprintf($temperatureFormat, $this->baseXPath, $this->baseLevel + 4);
-        $waterTemperatureXPath = sprintf($waterTemperatureFormat, $this->baseXPath, $this->baseLevel + 4);
+        $windXPath = sprintf($windFormat, $this->baseXPath, $this->baseLevel + 5);
+        $waveXPath = sprintf($waveFormat, $this->baseXPath, $this->baseLevel + 5);
+        $weatherNameXPath = sprintf($weatherIdFormat, $this->baseXPath, $this->baseLevel + 5);
+        $temperatureXPath = sprintf($temperatureFormat, $this->baseXPath, $this->baseLevel + 5);
+        $waterTemperatureXPath = sprintf($waterTemperatureFormat, $this->baseXPath, $this->baseLevel + 5);
 
         $wind = $this->filterXPath($crawler, $windXPath);
         $wave = $this->filterXPath($crawler, $waveXPath);
@@ -116,11 +116,11 @@ class NoticeCrawler extends BaseCrawler
         $tiltAdjustmentFormat = '%s/div[2]/div[%s]/div[1]/div[1]/table/tbody[%s]/tr[1]/td[6]';
 
         foreach (range(1, 6) as $index) {
-            $bracketXPath = sprintf($bracketFormat, $this->baseXPath, $this->baseLevel + 4, $index);
-            $weightXPath = sprintf($weightFormat, $this->baseXPath, $this->baseLevel + 4, $index);
-            $weightAdjustmentXPath = sprintf($weightAdjustmentFormat, $this->baseXPath, $this->baseLevel + 4, $index);
-            $exhibitionTimeXPath = sprintf($exhibitionTimeFormat, $this->baseXPath, $this->baseLevel + 4, $index);
-            $tiltAdjustmentXPath = sprintf($tiltAdjustmentFormat, $this->baseXPath, $this->baseLevel + 4, $index);
+            $bracketXPath = sprintf($bracketFormat, $this->baseXPath, $this->baseLevel + 5, $index);
+            $weightXPath = sprintf($weightFormat, $this->baseXPath, $this->baseLevel + 5, $index);
+            $weightAdjustmentXPath = sprintf($weightAdjustmentFormat, $this->baseXPath, $this->baseLevel + 5, $index);
+            $exhibitionTimeXPath = sprintf($exhibitionTimeFormat, $this->baseXPath, $this->baseLevel + 5, $index);
+            $tiltAdjustmentXPath = sprintf($tiltAdjustmentFormat, $this->baseXPath, $this->baseLevel + 5, $index);
 
             $bracket = $this->filterXPath($crawler, $bracketXPath);
             $weight = $this->filterXPath($crawler, $weightXPath);
@@ -158,8 +158,8 @@ class NoticeCrawler extends BaseCrawler
         $startTimingFormat = '%s/div[2]/div[%s]/div[2]/div[1]/table/tbody/tr[%s]/td/div/span[3]';
 
         foreach (range(1, 6) as $course) {
-            $bracketXPath = sprintf($bracketFormat, $this->baseXPath, $this->baseLevel + 4, $course);
-            $startTimingXPath = sprintf($startTimingFormat, $this->baseXPath, $this->baseLevel + 4, $course);
+            $bracketXPath = sprintf($bracketFormat, $this->baseXPath, $this->baseLevel + 5, $course);
+            $startTimingXPath = sprintf($startTimingFormat, $this->baseXPath, $this->baseLevel + 5, $course);
 
             $bracket = $this->filterXPath($crawler, $bracketXPath);
             $startTiming = $this->filterXPath($crawler, $startTimingXPath);

@@ -54,9 +54,9 @@ class ResultCrawler extends BaseCrawler
 
         $this->baseLevel = 0;
 
-        $levelFormat = '%s/div[2]/div[4]/div[1]/div/table/thead/tr/th[1]';
+        $levelFormat = '%s/div[2]/div[3]/ul/li';
         $levelXPath = sprintf($levelFormat, $this->baseXPath);
-        if (is_null($this->filterXPath($crawler, $levelXPath))) {
+        if (! is_null($this->filterXPath($crawler, $levelXPath))) {
             $this->baseLevel = 1;
         }
 
@@ -67,12 +67,12 @@ class ResultCrawler extends BaseCrawler
         $waterTemperatureFormat = '%s/div[2]/div[%s]/div[2]/div[1]/div[1]/div/div[1]/div[5]/div/span[2]';
         $techniqueNameFormat = '%s/div[2]/div[%s]/div[2]/div[1]/div[2]/div[2]/table/tbody/tr/td';
 
-        $windXPath = sprintf($windFormat, $this->baseXPath, $this->baseLevel + 5);
-        $waveXPath = sprintf($waveFormat, $this->baseXPath, $this->baseLevel + 5);
-        $weatherNameXPath = sprintf($weatherNameFormat, $this->baseXPath, $this->baseLevel + 5);
-        $temperatureXPath = sprintf($temperatureFormat, $this->baseXPath, $this->baseLevel + 5);
-        $waterTemperatureXPath = sprintf($waterTemperatureFormat, $this->baseXPath, $this->baseLevel + 5);
-        $techniqueNameXPath = sprintf($techniqueNameFormat, $this->baseXPath, $this->baseLevel + 5);
+        $windXPath = sprintf($windFormat, $this->baseXPath, $this->baseLevel + 6);
+        $waveXPath = sprintf($waveFormat, $this->baseXPath, $this->baseLevel + 6);
+        $weatherNameXPath = sprintf($weatherNameFormat, $this->baseXPath, $this->baseLevel + 6);
+        $temperatureXPath = sprintf($temperatureFormat, $this->baseXPath, $this->baseLevel + 6);
+        $waterTemperatureXPath = sprintf($waterTemperatureFormat, $this->baseXPath, $this->baseLevel + 6);
+        $techniqueNameXPath = sprintf($techniqueNameFormat, $this->baseXPath, $this->baseLevel + 6);
 
         $wind = $this->filterXPath($crawler, $windXPath);
         $wave = $this->filterXPath($crawler, $waveXPath);
@@ -120,10 +120,10 @@ class ResultCrawler extends BaseCrawler
         $racerNameFormat = '%s/div[2]/div[%s]/div[1]/div/table/tbody[%s]/tr/td[3]/span[2]';
 
         foreach (range(1, 6) as $index) {
-            $placeXPath = sprintf($placeFormat, $this->baseXPath, $this->baseLevel + 4, $index);
-            $bracketXPath = sprintf($bracketFormat, $this->baseXPath, $this->baseLevel + 4, $index);
-            $racerNumberXPath = sprintf($racerNumberFormat, $this->baseXPath, $this->baseLevel + 4, $index);
-            $racerNameXPath = sprintf($racerNameFormat, $this->baseXPath, $this->baseLevel + 4, $index);
+            $placeXPath = sprintf($placeFormat, $this->baseXPath, $this->baseLevel + 5, $index);
+            $bracketXPath = sprintf($bracketFormat, $this->baseXPath, $this->baseLevel + 5, $index);
+            $racerNumberXPath = sprintf($racerNumberFormat, $this->baseXPath, $this->baseLevel + 5, $index);
+            $racerNameXPath = sprintf($racerNameFormat, $this->baseXPath, $this->baseLevel + 5, $index);
 
             $place = $this->filterXPath($crawler, $placeXPath);
             $bracket = $this->filterXPath($crawler, $bracketXPath);
@@ -158,8 +158,8 @@ class ResultCrawler extends BaseCrawler
         $startTimingFormat = '%s/div[2]/div[%s]/div[2]/div/table/tbody/tr[%s]/td/div/span[3]/span';
 
         foreach (range(1, 6) as $course) {
-            $bracketXPath = sprintf($bracketFormat, $this->baseXPath, $this->baseLevel + 4, $course);
-            $startTimingXPath = sprintf($startTimingFormat, $this->baseXPath, $this->baseLevel + 4, $course);
+            $bracketXPath = sprintf($bracketFormat, $this->baseXPath, $this->baseLevel + 5, $course);
+            $startTimingXPath = sprintf($startTimingFormat, $this->baseXPath, $this->baseLevel + 5, $course);
 
             $bracket = $this->filterXPath($crawler, $bracketXPath);
             $startTiming = $this->filterXPath($crawler, $startTimingXPath);
